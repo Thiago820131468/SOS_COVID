@@ -23,7 +23,7 @@
 @media only screen and (max-width: 752px) {
     .main__buttons-button{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .btn.btn-cadastrar, .btn.btn-login{
