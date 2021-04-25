@@ -17,6 +17,7 @@ connection.connect(function (err) {
     console.log('id da conexao: ' + connection.threadId);
 });
 
+// Seleção de objetos no banco
 connection.query('SELECT * FROM cliente', function (err, rows, fields) {
     if (!err) {
         console.log('Resultado: ', rows);
@@ -42,4 +43,5 @@ app.post('', function (req, res) {
     let bairro = req.body.bairro; //cpf que virá do corpo do json quando for enviado o formulaprio de cadastro.
     let senha = req.body.senha; //cpf que virá do corpo do json quando for enviado o formulaprio de cadastro.    
 });
+
 app.listen(4000);
