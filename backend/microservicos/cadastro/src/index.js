@@ -1,7 +1,35 @@
-const express = require ('express');
+const express = require('express');
 const app = express();
+const mysql = require('mysql');
+
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'teste',
+    password: '123456',
+    database: 'sos'
+});
+
+connection.connect(function (err) {
+    if (err) {
+        console.error('falha na conexao: ' + err.stack);
+        return;
+    }
+    console.log('id da conexao: ' + connection.threadId);
+});
+
+connection.query('SELECT * FROM cliente', function (err, rows, fields) {
+    if (!err) {
+        console.log('Resultado: ', rows);
+    } else {
+        console.log('Erro ao realizar a consulta');
+    }
+});
+
 app.use(express.json());
 
+app.get('/cliente', (req, res) => {
+    res.send(cliente);
+});
 
 app.post('', function (req, res) {
     let nome = req.body.nome; //nome que virá do corpo do json quando for enviado o formulário de cadastro.
