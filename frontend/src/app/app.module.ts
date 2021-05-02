@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/template/inicio/inicio.component';
 import { CadastroComponent } from './components/template/cadastro/cadastro.component';
+import { CadastroClinicaComponent } from './components/template/cadastro-clinica/cadastro-clinica.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    CadastroComponent
+    CadastroComponent,
+    CadastroClinicaComponent
   ],
   imports: [
     BrowserModule,
