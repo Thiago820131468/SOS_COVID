@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cliente = require("./cliente");
+const clinica = require("./clinica");
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -36,8 +37,22 @@ app.post('/cliente-cadastrado', function (req, res) {
 });
 
 app.post('/clinica-cadastrada', function (req, res) {
-    res.send("Nome: " + req.body.nomeClinica),
-        res.send("Cnpj: " + req.body.cnpj)
+    clinica.create({
+        nome: req.body.nome,
+        cnpj: req.body.cnpj,
+        email: req.body.email,
+        telefone: req.body.telefone,
+        cep: req.body.cep,
+        rua: req.body.rua,
+        numero: req.body.numero,
+        bairro: req.body.bairro,
+        senha: req.body.senha
+    }).then(function () {
+        res.redirect('/home'); //Redireciona o clínica cadastrada para a tela inicial
+        console.log("Clínica Cadastrada");
+    }).catch(function (erro) {
+        console.log("Não foi possível cadastrar a clínica" + erro);
+    });
 });
 
 app.listen(1000);
