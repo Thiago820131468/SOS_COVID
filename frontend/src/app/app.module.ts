@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './components/template/inicio/inicio.component';
 import { CadastroComponent } from './components/template/cadastro/cadastro.component';
 import { CadastroClinicaComponent } from './components/template/cadastro-clinica/cadastro-clinica.component';
+import { ClienteService } from './cliente.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,11 @@ import { CadastroClinicaComponent } from './components/template/cadastro-clinica
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ ClienteService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

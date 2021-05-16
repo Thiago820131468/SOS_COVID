@@ -8,16 +8,36 @@ app.use(express.urlencoded({
     extended: false
 }));
 
+
+
+app.use( 
+    (req, res, next) => {
+
+        res.setHeader('Access-Control-Allow-Origin', "*");
+        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
+
+        next();
+});
+
+/*
 //cadastro de clientes no banco
 app.get('/cadastro-cliente', function (req, res) { //caminho do formulário de cadastro de usuarios
-    res.render('cadastro-cliente');
+//A função function(clientes) recebe todos os dados da tabela cliente
+    cliente.findAll().then(function(clientes){
+//Esse é o  caminho para onde está enviando os dados da tabela cliente
+        res.render('../login/src/index', {clientes: clientes});
+    })
+    
 });
+*/
+
 
 app.get('/cadastro-clinica', function (req, res) { //caminho do formulário de cadastro de clinicas
     res.render('cadastro-clinica');
 });
 
-app.post('/cliente-cadastrado', function (req, res) {
+app.post('/cadastro-cliente', function (req, res) {
     cliente.create({
         nome: req.body.nome,
         cpf: req.body.cpf,
@@ -36,7 +56,7 @@ app.post('/cliente-cadastrado', function (req, res) {
     });
 });
 
-app.post('/clinica-cadastrada', function (req, res) {
+app.post('/cadastro-clinica', function (req, res) {
     clinica.create({
         nome: req.body.nome,
         cnpj: req.body.cnpj,
@@ -55,4 +75,4 @@ app.post('/clinica-cadastrada', function (req, res) {
     });
 });
 
-app.listen(1000);
+module.exports = app;

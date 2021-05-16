@@ -1,0 +1,20 @@
+{
+  "name": "sos_covid",
+  "description": "Projeto SOS covid, a forma simples e segura de marcar a sua vacina contra a covid-19 sem sair da sua casa.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M3RCX/SOS_covid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M3RCX/SOS_covid/issues"
+  },
+  "homepage": "https://github.com/M3RCX/SOS_covid#readme"
+}
